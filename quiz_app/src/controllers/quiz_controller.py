@@ -25,8 +25,10 @@ def create_quiz():
     # INCOMPLETE: Return a JSON response with the quiz ID and a 201 status
     # TODO: Use jsonify to create a JSON response containing `message` and
     # `quiz_id`, with status code 201
-    return jsonify(
-        {'message': 'Quiz created successfully', 'quiz_id': quiz_id}), 201
+    return jsonify({
+        'message': 'Quiz created successfully',
+        'quiz_id': quiz_id
+        }), 201
 
 
 @quiz_bp.route('/<int:quiz_id>', methods=['GET'])
