@@ -1,5 +1,5 @@
 # tests/test_quiz.py
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 from src.services.quiz_service import QuizService
 
 # Test for creating a new quiz
