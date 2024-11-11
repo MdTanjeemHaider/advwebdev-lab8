@@ -28,7 +28,7 @@ def create_quiz():
     return jsonify({
         'message': 'Quiz created successfully',
         'quiz_id': quiz_id
-        }), 201
+    }), 201
 
 
 @quiz_bp.route('/<int:quiz_id>', methods=['GET'])
@@ -47,7 +47,10 @@ def get_quiz(quiz_id):
     # TODO: If `quiz` exists, return it as a JSON response with status 200.
     # Otherwise, return an error message with status 404.
     if quiz:
-        return jsonify({"title": quiz.title, "questions": quiz.questions}), 200
+        return jsonify({
+            "title": quiz.title,
+            "questions": quiz.questions
+        }), 200
     else:
         return jsonify({"error": "Quiz not found"}), 404
 
@@ -64,7 +67,8 @@ def submit_quiz(quiz_id):
     # `request.json.get('answers')` and store in `user_answers`
     user_answers = request.json.get('answers')
 
-    # INCOMPLETE: Use the service to evaluate the quiz with the provided answers
+    # INCOMPLETE: Use the service to evaluate
+    # the quiz with the provided answers
     # TODO: Call `evaluate_quiz` with `quiz_id` and `user_answers` and store
     # the result in `score` and `message`
     score, message = service.evaluate_quiz(quiz_id, user_answers)
